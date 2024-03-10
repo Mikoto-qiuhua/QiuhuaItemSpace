@@ -1,0 +1,13 @@
+name: QiuhuaItemSpace
+main: org.qiuhua.QiuhuaItemSpace.Main
+version: 1.0.0
+api-version: 1.13
+commands:
+  QiuhuaItemSpace:
+    description: "主指令"
+    usage: /<command>
+depend:
+softdepend:
+  - NeigeItems
+#libraries:
+#  - com.zaxxer:HikariCP:4.0.3

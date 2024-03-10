@@ -1,0 +1,92 @@
+#空间  自动拾取物品 是按优先级的 从上往下进行判断是否可以进入
+#空间id一旦定好后尽量不修改 修改的话就是新空间了
+Space:
+  材料仓库:
+    #标题
+    Title: "材料仓库"
+    #这个仓库的大小 -1是无限大
+    Size: 10
+    #需要包含其中一条lore才可放入  自动拾取也是
+    Condition:
+      - "材料仓库"
+      - "lore1"
+    #自动拾取
+    AutoPickUp:
+      #是否启用
+      Enable: true
+      #启用后需要的权限
+      Permissions: "QiuhuaItemSpace.AutoPickUp.材料仓库"
+    UpPage:
+      Name: "上一页"
+      Type: "barrier"
+      #设置-1则不启用
+      Model: -1
+      Lore:
+        - "lore1"
+    DownPage:
+      Name: "下一页"
+      Type: "barrier"
+      Model: -1
+      Lore:
+        - "lore1"
+  普通仓库:
+    #标题
+    Title: "普通仓库"
+    #这个仓库的大小 -1是无限大
+    Size: -1
+    #需要包含其中一条lore才可放入  自动拾取也是
+    Condition: ""
+    #自动拾取
+    AutoPickUp:
+      #是否启用
+      Enable: true
+      #启用后需要的权限
+      Permissions: "QiuhuaItemSpace.AutoPickUp.普通仓库"
+    UpPage:
+      Name: "上一页"
+      Type: "barrier"
+      #设置-1则不启用
+      Model: -1
+      Lore:
+        - "lore1"
+    DownPage:
+      Name: "下一页"
+      Type: "barrier"
+      Model: -1
+      Lore:
+        - "lore1"
+
+AddLoreInfo:
+  - "§2[!]§7当前数量 <Amount>"
+  - "§2[!]§7[左键] 拿取1个"
+  - "§2[!]§7[右键] 拿取16个"
+  - "§2[!]§7[潜行+左键] 拿取32个"
+  - "§2[!]§7[潜行+右键] 拿取64个"
+
+#是否启用ni物品库兼容
+#/ni givePack
+#/ni give
+#以上指令触发的物品均会优先进入对应的物品空间
+#进不去的会进入背包  进不了背包的会掉落地上
+NeigeItems: true
+
+
+Lang:
+  dataSave: "§f[§2Qiuhua§aItemSpace§f] §e正在存储玩家数据....."
+  itemSpaceLock: "§f[§2Qiuhua§aItemSpace§f] §e空间锁定中,等待数据加载完成"
+  itemSpaceUnlock: "§f[§2Qiuhua§aItemSpace§f] §e空间加载完成,已解锁"
+  reload: "§f[§2Qiuhua§aItemSpace§f] §e重新加载完成"
+  permission: "§f[§2Qiuhua§aItemSpace§f] §e你没有权限这么做"
+  pickUpItem: "§f[§2Qiuhua§aItemSpace§f] §e已拾取 §6<itemId> <Amount> §e个 进入 §6<spaceId> §e空间"
+  spaceIsFull: "§f[§2Qiuhua§aItemSpace§f] §6<spaceId> §e空间已满"
+
+
+#数据库
+Database:
+  type: sqlite   #sqlite或者mysql   mysql才需要配置下面的部分
+  dataBaseName: QiuhuaItemSpace   #数据库名称
+  username: root  #账户名称
+  password: root  #密码
+  port: 3306  #端口
+  ip: 127.0.0.1  #ip
+  autoSave: 15 #自动保存间隔 分钟
